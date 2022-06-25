@@ -85,13 +85,30 @@ class SinglyLinkedList {
         let outOfRange = false;
 
         while (current !== index){
-            if (current <= this.length){
+            if (current >= this.length -1){
                 outOfRange = true;
                 break;
             }
             result = result.next;
             current++;
         }
+        return outOfRange ? "Out Of Range" : result.value;
+    }
+
+    set(ind, newVal){
+        let current = 0;
+        let result = this.head;
+        let outOfRange = false;
+
+        while (current !== ind){
+            if (current >= this.length -1){
+                outOfRange = true;
+                break;
+            }
+            result = result.next;
+            current++;
+        }
+        if (!outOfRange){ result.value = newVal }
         return outOfRange ? "Out Of Range" : result.value;
     }
 
@@ -108,10 +125,10 @@ list.push(3);
 list.pop();
 list.push(4);
 list.push(5);
-console.log(list)
 
 list.push(77);
 list.push(14);
 list.push(42);
 list.unshift(422);
-console.log(list.get(123))
+console.log(list.set(6, 11111111))
+console.log(list)
