@@ -112,23 +112,51 @@ class SinglyLinkedList {
         return outOfRange ? "Out Of Range" : result.value;
     }
 
+    insert(index, value){
+        
+        if (index < 0 || index > this.length){
+            return "Out Of Range";
+        }
+
+        let newNode = new Node(value);
+        let result = this.head;
+
+        if (index === 0){
+            this.head = newNode;
+            this.head.next = result;
+            this.length ++;
+            return this.head.value;
+        }
+
+        if (index === this.length){
+            this.tail.next = newNode;
+            this.tail = newNode;
+            this.length ++;
+            return this.tail.value;
+        }
+        
+        let current = 0;
+        let previous = null;
+
+        while (current !== index){
+
+            previous = result;
+            result = result.next;
+            current ++;
+        }
+
+        previous.next = newNode;
+        newNode.next = result;
+        this.length ++;
+        return newNode.value;
+    }
+
 }
 
 
 let list = new SinglyLinkedList();
 list.unshift(5);
 list.unshift(2);
-list.shift();
 
-list.pop();
-list.push(3);
-list.pop();
-list.push(4);
-list.push(5);
-
-list.push(77);
-list.push(14);
-list.push(42);
-list.unshift(422);
-console.log(list.set(6, 11111111))
+console.log(list.insert(3, 1488))
 console.log(list)
