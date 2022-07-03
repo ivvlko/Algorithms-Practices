@@ -28,6 +28,16 @@ class DoublyLinkeList{
         return this;
     }
 
+    pop(){
+        if (this.tail){
+            let element = this.tail.value;
+            this.tail = this.tail.previous;
+            this.tail.next = null;
+            return element
+        }
+        
+    }
+
     print(){
         let current = this.head;
         let res = [];
@@ -51,11 +61,11 @@ class DoublyLinkeList{
 }
 
 let arr = new DoublyLinkeList();
-
+console.log(arr.pop());
 arr.push(1);
 arr.push(2);
 arr.push(3);
 arr.push(42);
-
 console.log(arr.print());
-console.log(arr.printReverse());
+console.log(arr.pop());
+console.log(arr.print());
