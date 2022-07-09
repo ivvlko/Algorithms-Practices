@@ -38,6 +38,14 @@ class DoublyLinkeList{
         
     }
 
+    shift(){
+            let result = this.head.value;
+            this.head = this.head.next;
+            this.head.previous = null;
+            this.length --;
+            return result;
+        }
+
     print(){
         let current = this.head;
         let res = [];
@@ -66,6 +74,9 @@ arr.push(1);
 arr.push(2);
 arr.push(3);
 arr.push(42);
-console.log(arr.print());
-console.log(arr.pop());
-console.log(arr.print());
+console.log(arr.shift(42));
+console.log(arr.print())
+console.log(arr.printReverse())
+// console.log(arr.print());
+// console.log(arr.pop());
+// console.log(arr.print());
