@@ -45,6 +45,21 @@ class DoublyLinkeList{
             this.length --;
             return result;
         }
+    
+    unshift(element){
+        let newNode = new Node(element);
+        if (!this.head){
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            let nextNode = this.head;
+            this.head = newNode;
+            this.head.next = nextNode;
+            nextNode.previous = newNode;
+        }
+        this.length ++;
+        return this
+    }
 
     print(){
         let current = this.head;
@@ -69,14 +84,10 @@ class DoublyLinkeList{
 }
 
 let arr = new DoublyLinkeList();
-console.log(arr.pop());
-arr.push(1);
-arr.push(2);
-arr.push(3);
-arr.push(42);
-console.log(arr.shift(42));
+arr.unshift(42);
 console.log(arr.print())
-console.log(arr.printReverse())
-// console.log(arr.print());
-// console.log(arr.pop());
-// console.log(arr.print());
+console.log(arr);
+arr.push(1);
+arr.unshift(2);
+console.log(arr.print());
+console.log(arr);
