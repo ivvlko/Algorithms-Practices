@@ -71,6 +71,38 @@ class DoublyLinkeList{
         return res;
     }
 
+    get(index){
+        if (!this.head) { return undefined };
+        if (index < 0 || index >= this.length){ return "Out of range" };
+        let current = this.head;
+        let count = 0;
+        let result;
+        while (current){
+            if (count === index){
+                result = current.value;
+                break;
+            }
+            count ++;
+            current = current.next;
+
+        }
+        return result;
+    }
+
+    set(index, value){
+        if (index < 0 || index >= this.length){ return "Out of range" };
+        let current = this.head;
+        let count = 0;
+
+        while(index !== count){
+            count ++;
+            current = current.next;
+        }
+        current.value = value;
+        return this;
+
+    }
+
     printReverse(){
         let current = this.tail;
         let res = [];
@@ -85,9 +117,9 @@ class DoublyLinkeList{
 
 let arr = new DoublyLinkeList();
 arr.unshift(42);
-console.log(arr.print())
-console.log(arr);
 arr.push(1);
 arr.unshift(2);
 console.log(arr.print());
-console.log(arr);
+console.log(arr.get(2))
+console.log(arr.set(2, 222))
+console.log(arr.print());
