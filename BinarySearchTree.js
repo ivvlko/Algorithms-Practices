@@ -33,6 +33,23 @@ class BinarySearchTree{
         }
     return this;
     }
+
+    find(searchedValue){
+        let current = this.root;
+        let match = "not present";
+        while(current){
+            if (current.value === searchedValue){
+                return current.value;
+            }
+
+            if (current.value > searchedValue){
+                current = current.left;
+            } else{
+                current = current.right;
+            }
+        }
+        return match;
+    }
 }
 
 let bst = new BinarySearchTree();
@@ -45,3 +62,5 @@ console.log(bst.add(39));
 bst.add(1);
 
 console.log(bst)
+let s = bst.find(40);
+console.log(s);
