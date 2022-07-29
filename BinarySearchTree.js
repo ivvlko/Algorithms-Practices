@@ -64,3 +64,5 @@ bst.add(1);
 console.log(bst)
 let s = bst.find(40);
 console.log(s);
+
+module.exports = {bst: BinarySearchTree, node: Node};
