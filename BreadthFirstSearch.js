@@ -2,13 +2,8 @@ const {bst, node} = require("./BinarySearchTree.js");
 
 let tree = new bst();
 tree.root = new node(40);
-tree.add(55);
-tree.add(45);
-tree.add(38);
-tree.add(39);
-tree.add(1);
-tree.add(21);
-tree.add(555);
+let elementsToAdd = [55, 45, 38, 39, 1, 21, 55]
+elementsToAdd.map((x) => tree.add(x));
 
 //this uses BinarySearch tree but it works for any kind of tree;
 function bfs(tree){
