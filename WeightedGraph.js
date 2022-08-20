@@ -19,8 +19,8 @@ class WeightedGraph{
 
     removeEdge(v1, v2){
         if (!(v1 in this.adjacencyList) || !(v2 in this.adjacencyList)) return "Vertex not found";
-        this.adjacencyList[v1] = this.adjacencyList[v1].filter(el => el !== v2);
-        this.adjacencyList[v2] = this.adjacencyList[v2].filter(el => el !== v1); 
+        this.adjacencyList[v1] = this.adjacencyList[v1].filter(el => el.node !== v2);
+        this.adjacencyList[v2] = this.adjacencyList[v2].filter(el => el.node !== v1); 
         return this.adjacencyList;
     }
 
@@ -46,5 +46,5 @@ wg.addVertex("c");
 wg.addEdge("a", "b", 3);
 wg.addEdge("a", "c", 4);
 wg.addEdge("c", "b", -4);
-
+wg.removeVertex("a");
 wg.print();
